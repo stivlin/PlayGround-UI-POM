@@ -55,7 +55,6 @@ class InputFieldsPage(BasePage):
         return result
 
     def read_value(self) -> str:
-        self.page.pause()
         result = self.page.locator(self.RESULT_S03)
         input_field = self.page.locator(self.INPUT_READ_VALUE)
         self.page.locator(self.READ_VALUE).click()

@@ -9,4 +9,3 @@ class Pages:
         self.main = MainPage(page)
         self.input_fields = InputFieldsPage(page)
         self.buttons_page = ButtonsPage(page)
-
