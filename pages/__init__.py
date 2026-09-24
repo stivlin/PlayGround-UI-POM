@@ -1,6 +1,7 @@
-from pages.buttons import ButtonsPage
+from pages.buttons_page import ButtonsPage
 
-from pages.dropdown import DropdownPage
+from pages.dropdown_page import DropdownPage
+from pages.links_page import LinksPage
 from pages.main_page import MainPage
 from pages.input_fields_page import InputFieldsPage
 
@@ -11,3 +12,4 @@ class Pages:
         self.input_fields = InputFieldsPage(page)
         self.buttons_page = ButtonsPage(page)
         self.dropdown = DropdownPage(page)
+        self.links_page = LinksPage(page)

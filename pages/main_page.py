@@ -1,7 +1,8 @@
 from pages.base_page import BasePage
-from pages.buttons import ButtonsPage
-from pages.dropdown import DropdownPage
+from pages.buttons_page import ButtonsPage
+from pages.dropdown_page import DropdownPage
 from pages.input_fields_page import InputFieldsPage
+from pages.links_page import LinksPage
 
 
 class MainPage(BasePage):
@@ -23,3 +24,8 @@ class MainPage(BasePage):
         button_link.click()
         return DropdownPage(self.page)
 
+    def select_links_page(self):
+        button_link = self.page.get_by_test_id("new-practice-card-links")
+        button_link.wait_for(state="visible", timeout=5000)
+        button_link.click()
+        return LinksPage(self.page)

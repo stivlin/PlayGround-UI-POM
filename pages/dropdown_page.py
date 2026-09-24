@@ -40,4 +40,12 @@ class DropdownPage(BasePage):
         expect(result).to_contain_text("High Priority")
         return result.inner_text()
 
-    
+    def select_from_combobox(self, city_name: str) -> str:
+        self.page.pause()
+        comobox = self.page.locator('//label[normalize-space()="City"]/following-sibling::div//input')
+        comobox.fill(city_name)
+        option = self.page.get_by_role("option", name=city_name)
+        option.click()
+        result = self.page.get_by_test_id("result-s06")
+        expect(result).to_contain_text(city_name)
+        return result.inner_text()

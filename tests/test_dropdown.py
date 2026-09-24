@@ -22,7 +22,14 @@ def test_select_the_last(app):
     assert last == "Selected language: TypeScript"
 
 @allure.feature("dropdown")
-@allure.title("Select High Priority") 
+@allure.title("Select city from combobox")
+def test_select_from_combobox(app):
+    app.main.select_dropdown_page()
+    result = app.dropdown.select_from_combobox("Mumbai")
+    assert "Mumbai" in result
+
+@allure.feature("dropdown")
+@allure.title("Select High Priority")
 def test_select_high_priority(app):
     app.main.select_dropdown_page()
     priority = app.dropdown.select_from_list_box()
