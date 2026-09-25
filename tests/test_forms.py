@@ -73,17 +73,13 @@ def test_account_setup_error(app):
     app.main.select_forms_page()
     errors = app.froms_page.account_setup_form_error("123456")
 
-    # Verify errors exist
     assert len(errors) > 0, "Expected validation errors but got none"
 
-    # Join errors for easier checking
     error_text = " ".join(errors).lower()
 
-    # Verify password mismatch error
     assert "passwords do not match" in error_text or "password" in error_text, \
         f"Expected password mismatch error, got: {errors}"
 
-    # Verify terms acceptance error
     assert "accept" in error_text or "terms" in error_text, \
         f"Expected terms acceptance error, got: {errors}"
 
@@ -92,6 +88,5 @@ def test_account_setup_error(app):
 def test_account_setup_success(app):
     app.main.select_forms_page()
     result = app.froms_page.account_setup_form_success()
-
-    # Verify success message appears
+    
     assert result == "Your account has been secured."
