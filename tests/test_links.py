@@ -1,4 +1,3 @@
-import requests
 import allure
 
 @allure.feature("Links")
